@@ -107,6 +107,7 @@ namespace TelephoneDirectory
             user.PhoneNumber = maskedTextBoxUpdate.Text;
 
             user.Status = DAL.ORM.Enum.Status.Updated;
+            user.UpdateDate = DateTime.Now;
 
             db.SaveChanges();
 
@@ -118,6 +119,7 @@ namespace TelephoneDirectory
         {
             AppUser user = db.AppUsers.FirstOrDefault(x => x.ID == id);
             user.Status = DAL.ORM.Enum.Status.Deleted;
+            user.DeleteDate = DateTime.Now;
 
             db.SaveChanges();
 
